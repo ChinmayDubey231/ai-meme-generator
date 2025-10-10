@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Meme & Poster Creator</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>AI Meme & Poster Creator</h1>
+        <p>
+          Create classic memes, generate unique posters, or browse popular
+          templates
+        </p>
+      </header>
+
+      <main class="main-content">
+        <div class="generator-box">
+          <h2>Meme Generator</h2>
+          <form id="meme-form">
+            <div class="form-group">
+              <label for="meme-template">Choose a Template:</label>
+              <select id="meme-template" name="template" class="form-control">
+                <option value="drake.jpg">Drake Hotline Bling</option>
+                <option value="distracted-boyfriend.jpg">
+                  Distracted Boyfriend
+                </option>
+                <option value="two-buttons.jpg">Two Buttons</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="top-text">Top Text:</label>
+              <input
+                type="text"
+                id="top-text"
+                class="form-control"
+                placeholder="Text at the top"
+              />
+            </div>
+            <div class="form-group">
+              <label for="bottom-text">Bottom Text:</label>
+              <input
+                type="text"
+                id="bottom-text"
+                class="form-control"
+                placeholder="Text at the bottom"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Generate Meme</button>
+            <hr class="form-divider" />
+            <div class="custom-text-section">
+              <h4>Add Custom Text</h4>
+              <div id="custom-text-container"></div>
+              <button
+                type="button"
+                id="add-custom-text-btn"
+                class="btn btn-secondary"
+              >
+                Add Text Box
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="generator-box">
+          <h2>AI Poster Generator</h2>
+          <form id="poster-form">
+            <div class="form-group">
+              <label for="ai-prompt">Enter a Prompt:</label>
+              <textarea
+                id="ai-prompt"
+                class="form-control"
+                rows="3"
+                placeholder="e.g., A cat programming on a laptop, synthwave style"
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">
+              Generate Poster
+            </button>
+          </form>
+        </div>
+
+        <div class="generator-box full-width">
+          <h2>Browse Popular Templates</h2>
+          <button id="fetch-templates-btn" class="btn btn-primary">
+            Load Templates
+          </button>
+          <div id="template-browser-container" class="template-grid"></div>
+        </div>
+      </main>
+
+      <section class="result-section">
+        <div id="loading-spinner" class="spinner" style="display: none"></div>
+        <div id="result-display" style="display: none">
+          <h3>Your Creation</h3>
+          <img id="result-image" src="" alt="Generated Image" />
+          <a
+            id="download-btn"
+            class="btn btn-secondary"
+            href=""
+            download="creation.png"
+            >Download Image</a
+          >
+        </div>
+        <div id="error-message" class="error-box" style="display: none"></div>
+      </section>
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
