@@ -5,9 +5,13 @@
 <p align="center">
   <strong>A powerful web application that combines AI-powered poster creation with classic meme generation</strong>
 </p>
-
 <p align="center">
-  <img src="https://github.com/ChinmayDubey231/ai-meme-generator/blob/main/demo/demo.mp4?raw=true" alt="Project Demo Video"/>
+<p align="center">
+  <a href="https://youtu.be/E0MY3KX-C8I" target="_blank">
+    <img src="https://youtu.be/E0MY3KX-C8I" alt="AI Meme Generator Demo" width="600"/>
+  </a>
+  <br>
+  <em>Click the image to watch the full demo on YouTube</em>
 </p>
 
 <p align="center">
@@ -196,6 +200,7 @@ Need help? Here are your options:
 Made with ❤️ and ☕ by Chinmay Dubey
 
 <p align="center"> <img src="https://img.shields.io/github/stars/yourusername/ai-poster-meme-generator?style=social" alt="GitHub stars"> <img src="https://img.shields.io/github/forks/yourusername/ai-poster-meme-generator?style=social" alt="GitHub forks"> <img src="https://img.shields.io/github/watchers/yourusername/ai-poster-meme-generator?style=social" alt="GitHub watchers"> </p></div> ```
+
 
 
 
