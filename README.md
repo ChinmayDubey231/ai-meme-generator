@@ -71,6 +71,7 @@ bash
 python app.py
 🌐 Open your browser and navigate to: http://127.0.0.1:5000
 
+
 📁 Project Structure
 text
 ai-poster-meme-generator/
@@ -119,6 +120,7 @@ Set canvas dimensions and background
 Add placeholder text elements
 
 Save as reusable template
+```
 
 🔧 Technical Details
 Built With
@@ -181,7 +183,7 @@ Pillow maintainers for robust image processing
 📞 Support
 Need help? Here are your options:
 
-📧 Email: support@yourdomain.com
+📧 Email: chinmaydubey231@gmail.com
 
 🐛 Issues: GitHub Issues
 
@@ -191,6 +193,7 @@ Need help? Here are your options:
 
 <div align="center">
 ⭐ Don't forget to star this repository if you find it useful!
-Made with ❤️ and ☕ by [Your Name]
+Made with ❤️ and ☕ by Chinmay Dubey
 
 <p align="center"> <img src="https://img.shields.io/github/stars/yourusername/ai-poster-meme-generator?style=social" alt="GitHub stars"> <img src="https://img.shields.io/github/forks/yourusername/ai-poster-meme-generator?style=social" alt="GitHub forks"> <img src="https://img.shields.io/github/watchers/yourusername/ai-poster-meme-generator?style=social" alt="GitHub watchers"> </p></div> ```
+
