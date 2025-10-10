@@ -13,10 +13,6 @@
   <img src="https://img.shields.io/badge/Stable%20Diffusion-XL-orange?style=for-the-badge" alt="Stable Diffusion">
 </p>
 
-<p align="center">
-  <img width="600" src="https://via.placeholder.com/600x300/4F46E5/FFFFFF?text=AI+Poster+%26+Meme+Generator" alt="Project Banner">
-</p>
-
 ## ✨ **Features**
 
 <div align="center">
@@ -196,5 +192,6 @@ Need help? Here are your options:
 Made with ❤️ and ☕ by Chinmay Dubey
 
 <p align="center"> <img src="https://img.shields.io/github/stars/yourusername/ai-poster-meme-generator?style=social" alt="GitHub stars"> <img src="https://img.shields.io/github/forks/yourusername/ai-poster-meme-generator?style=social" alt="GitHub forks"> <img src="https://img.shields.io/github/watchers/yourusername/ai-poster-meme-generator?style=social" alt="GitHub watchers"> </p></div> ```
+
 
 
