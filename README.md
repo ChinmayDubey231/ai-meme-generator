@@ -120,7 +120,7 @@ Set canvas dimensions and background
 Add placeholder text elements
 
 Save as reusable template
-```
+
 
 🔧 Technical Details
 Built With
@@ -142,7 +142,7 @@ API Key Error	Re-run python setup.py with valid token
 Port Already in Use	Use python app.py --port 5001
 Image Generation Fails	Check internet connection and API quota
 Debug Mode
-bash
+```
 # Enable debug mode for detailed logs
 python app.py --debug
 🤝 Contributing
@@ -196,4 +196,5 @@ Need help? Here are your options:
 Made with ❤️ and ☕ by Chinmay Dubey
 
 <p align="center"> <img src="https://img.shields.io/github/stars/yourusername/ai-poster-meme-generator?style=social" alt="GitHub stars"> <img src="https://img.shields.io/github/forks/yourusername/ai-poster-meme-generator?style=social" alt="GitHub forks"> <img src="https://img.shields.io/github/watchers/yourusername/ai-poster-meme-generator?style=social" alt="GitHub watchers"> </p></div> ```
+
 
