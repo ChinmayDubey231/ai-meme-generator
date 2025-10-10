@@ -7,6 +7,10 @@
 </p>
 
 <p align="center">
+  <img src="https://github.com/ChinmayDubey231/ai-meme-generator/blob/main/demo/demo.mp4?raw=true" alt="Project Demo Video"/>
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/Python-3.6+-blue?style=for-the-badge&logo=python" alt="Python Version">
   <img src="https://img.shields.io/badge/Flask-2.0+-green?style=for-the-badge&logo=flask" alt="Flask Version">
   <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License">
@@ -192,6 +196,7 @@ Need help? Here are your options:
 Made with ❤️ and ☕ by Chinmay Dubey
 
 <p align="center"> <img src="https://img.shields.io/github/stars/yourusername/ai-poster-meme-generator?style=social" alt="GitHub stars"> <img src="https://img.shields.io/github/forks/yourusername/ai-poster-meme-generator?style=social" alt="GitHub forks"> <img src="https://img.shields.io/github/watchers/yourusername/ai-poster-meme-generator?style=social" alt="GitHub watchers"> </p></div> ```
+
 
 
 
