@@ -7,7 +7,7 @@ load_dotenv()
 
 class Config:
     HUGGING_FACE_TOKEN = os.getenv('HUGGING_FACE_TOKEN')
-    HF_MODEL = os.getenv('HF_MODEL', 'stabilityai/stable-diffusion-xl-base-1.0')
+    HF_MODEL = os.getenv('HF_MODEL', 'stabilityai/stable-diffusion-3-medium-diffusers')
     HF_API_URL = os.getenv(
         'HF_API_URL',
         f"https://router.huggingface.co/hf-inference/models/{HF_MODEL}",

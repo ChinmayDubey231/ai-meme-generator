@@ -76,7 +76,7 @@ Optional environment variables (in `.env` or your host's settings):
 |----------|---------|---------|
 | `HUGGING_FACE_TOKEN` | — | **Required** for AI posters |
 | `SECRET_KEY` | dev key | Flask secret key |
-| `HF_MODEL` | `stabilityai/stable-diffusion-xl-base-1.0` | Any text-to-image model on Hugging Face |
+| `HF_MODEL` | `stabilityai/stable-diffusion-3-medium-diffusers` | Any text-to-image model served by the `hf-inference` provider |
 | `HF_API_URL` | Hugging Face router URL for `HF_MODEL` | Override the inference endpoint entirely |
 | `FLASK_DEBUG` | `0` | Set to `1` for auto-reload and debug pages (local only) |
 
