@@ -4,30 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Meme & Poster Creator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
   </head>
   <body>
+    <!-- Animated backdrop: gradient blobs + floating emoji canvas -->
+    <div class="bg-blobs" aria-hidden="true">
+      <span class="blob blob-1"></span>
+      <span class="blob blob-2"></span>
+      <span class="blob blob-3"></span>
+    </div>
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+    <canvas id="fx-canvas" aria-hidden="true"></canvas>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker-track">
+        <span>🚀 STONKS</span><span>💀 I'M DEAD</span><span>🐸 FEELS GOOD MAN</span>
+        <span>🗿 MOAI MODE</span><span>🔥 THIS IS FINE</span><span>👀 SUS</span>
+        <span>😎 DEAL WITH IT</span><span>🤡 CLOWN WORLD</span><span>💯 BASED</span>
+        <span>🥲 IT'S FREE REAL ESTATE</span>
+        <span>🚀 STONKS</span><span>💀 I'M DEAD</span><span>🐸 FEELS GOOD MAN</span>
+        <span>🗿 MOAI MODE</span><span>🔥 THIS IS FINE</span><span>👀 SUS</span>
+        <span>😎 DEAL WITH IT</span><span>🤡 CLOWN WORLD</span><span>💯 BASED</span>
+        <span>🥲 IT'S FREE REAL ESTATE</span>
+      </div>
+    </div>
+
     <div class="container">
       <header>
-        <h1>AI Meme & Poster Creator</h1>
-        <p>
-          Create classic memes, generate unique posters, or browse popular
-          templates
+        <div class="logo-emoji" aria-hidden="true">😂</div>
+        <h1 id="site-title" class="wavy-title">AI Meme &amp; Poster Creator</h1>
+        <p class="tagline">
+          <span id="tagline-text">Create classic memes, generate unique posters, or browse popular templates</span><span class="caret" aria-hidden="true">|</span>
         </p>
+        <div class="stats-row">
+          <div class="stat"><span id="meme-count">0</span> memes made this session</div>
+          <button type="button" id="motion-toggle" class="chip" aria-pressed="true">
+            ✨ Effects: On
+          </button>
+        </div>
       </header>
 
       <main class="main-content">
-        <div class="generator-box">
-          <h2>Meme Generator</h2>
+        <div class="generator-box tilt reveal">
+          <h2><span class="h2-emoji" aria-hidden="true">🖼️</span> Meme Generator</h2>
           <form id="meme-form">
             <div class="form-group">
               <label for="meme-template">Choose a Template:</label>
@@ -43,6 +71,7 @@
                 <option value="https://i.imgflip.com/1g8my4.jpg">Two Buttons</option>
               </select>
             </div>
+
             <div class="form-group">
               <label for="top-text">Top Text:</label>
               <input
@@ -63,6 +92,9 @@
                 maxlength="200"
               />
             </div>
+            <button type="button" id="random-caption-btn" class="btn btn-ghost">
+              <span class="dice" aria-hidden="true">🎲</span> Random caption
+            </button>
             <hr class="form-divider" />
             <div class="custom-text-section">
               <h4>Add Custom Text</h4>
@@ -72,17 +104,17 @@
                 id="add-custom-text-btn"
                 class="btn btn-secondary"
               >
-                Add Text Box
+                ➕ Add Text Box
               </button>
             </div>
             <button type="submit" class="btn btn-primary generate-btn">
-              Generate Meme
+              Generate Meme 🚀
             </button>
           </form>
         </div>
 
-        <div class="generator-box">
-          <h2>AI Poster Generator</h2>
+        <div class="generator-box tilt reveal">
+          <h2><span class="h2-emoji" aria-hidden="true">🎨</span> AI Poster Generator</h2>
           <form id="poster-form">
             <div class="form-group">
               <label for="ai-prompt">Enter a Prompt:</label>
@@ -93,28 +125,50 @@
                 placeholder="e.g., A cat programming on a laptop, synthwave style"
                 maxlength="500"
               ></textarea>
+              <div class="char-count"><span id="prompt-count">0</span>/500</div>
             </div>
+            <div class="prompt-chips" id="prompt-chips">
+              <button type="button" class="chip">🐱 Cat hacker, synthwave</button>
+              <button type="button" class="chip">🐸 Frog wizard, oil painting</button>
+              <button type="button" class="chip">🦖 T-rex at a DJ booth, neon</button>
+              <button type="button" class="chip">🍕 Pizza astronaut, retro poster</button>
+            </div>
+            <button type="button" id="surprise-btn" class="btn btn-ghost">
+              <span aria-hidden="true">🔮</span> Surprise me
+            </button>
             <p class="hint">
               AI generation can take up to a minute while the model warms up.
             </p>
             <button type="submit" class="btn btn-primary generate-btn">
-              Generate Poster
+              Generate Poster 🎨
             </button>
           </form>
         </div>
 
         <section class="result-section full-width">
-          <div id="loading-spinner" class="spinner" style="display: none"></div>
+          <div id="loading-spinner" class="loader" style="display: none">
+            <div class="loader-emojis" aria-hidden="true">
+              <span>😂</span><span>🔥</span><span>💀</span><span>🐸</span><span>🗿</span>
+            </div>
+            <p id="loading-message" class="loading-message" aria-live="polite">
+              Cooking up something dank...
+            </p>
+          </div>
           <div id="result-display" style="display: none">
-            <h3>Your Creation</h3>
+            <h3 class="result-title">🎉 Your Creation 🎉</h3>
             <img id="result-image" src="" alt="Generated Image" />
-            <a
-              id="download-btn"
-              class="btn btn-secondary"
-              href=""
-              download="creation.png"
-              >Download Image</a
-            >
+            <div class="result-actions">
+              <a
+                id="download-btn"
+                class="btn btn-secondary"
+                href=""
+                download="creation.png"
+                >⬇️ Download Image</a
+              >
+              <button type="button" id="copy-btn" class="btn btn-ghost">
+                📋 Copy to clipboard
+              </button>
+            </div>
           </div>
           <div
             id="error-message"
@@ -124,8 +178,8 @@
           ></div>
         </section>
 
-        <div class="generator-box full-width">
-          <h2>Browse Popular Templates</h2>
+        <div class="generator-box full-width reveal">
+          <h2><span class="h2-emoji" aria-hidden="true">🔥</span> Browse Popular Templates</h2>
           <button id="fetch-templates-btn" class="btn btn-primary">
             Load Templates
           </button>
@@ -133,13 +187,21 @@
             type="search"
             id="template-search"
             class="form-control"
-            placeholder="Search templates..."
+            placeholder="🔍 Search templates..."
             style="display: none"
           />
           <div id="template-browser-container" class="template-grid"></div>
         </div>
       </main>
+
+      <footer class="footer">
+        Made with 💖 and questionable humor · psst, try the Konami code
+      </footer>
     </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script src="{{ url_for('static', filename='js/effects.js') }}"></script>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>
 </html>
