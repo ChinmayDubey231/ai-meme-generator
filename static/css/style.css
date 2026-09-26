@@ -73,6 +73,7 @@ header {
   border: 1px solid var(--border-color);
   border-radius: 5px;
   font-size: 1em;
+  font-family: inherit;
   box-sizing: border-box;
 }
 
@@ -195,12 +196,17 @@ header {
 
 .form-row {
   display: flex;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 0 15px;
   align-items: flex-end;
 }
 
-.flex-grow-2 {
-  flex-grow: 2;
+.form-row .form-group {
+  flex: 1 1 70px;
+}
+
+.form-row .flex-grow-2 {
+  flex-basis: 100%;
 }
 
 .btn-danger {
@@ -225,4 +231,52 @@ header {
     flex-direction: column;
     align-items: stretch;
   }
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-primary:not(:disabled):hover {
+  background-color: #357abd;
+}
+
+.btn:focus-visible,
+.form-control:focus-visible {
+  outline: 3px solid rgba(74, 144, 226, 0.5);
+  outline-offset: 2px;
+}
+
+.generate-btn {
+  margin-top: 10px;
+}
+
+.hint {
+  font-size: 0.85em;
+  color: #777;
+  margin: 0 0 10px;
+}
+
+.error-box {
+  background: #fdecea;
+  color: var(--error-color);
+  border: 1px solid var(--error-color);
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin-top: 15px;
+}
+
+#download-btn {
+  display: inline-block;
+  text-decoration: none;
+}
+
+#template-search {
+  margin-top: 5px;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  color: #777;
 }

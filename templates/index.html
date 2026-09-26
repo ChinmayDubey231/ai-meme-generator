@@ -32,11 +32,15 @@
             <div class="form-group">
               <label for="meme-template">Choose a Template:</label>
               <select id="meme-template" name="template" class="form-control">
-                <option value="drake.jpg">Drake Hotline Bling</option>
-                <option value="distracted-boyfriend.jpg">
+                {% for name in local_templates %}
+                <option value="{{ name }}">
+                  {{ name.rsplit('.', 1)[0].replace('-', ' ').replace('_', ' ').title() }}
+                </option>
+                {% endfor %}
+                <option value="https://i.imgflip.com/1ur9b0.jpg">
                   Distracted Boyfriend
                 </option>
-                <option value="two-buttons.jpg">Two Buttons</option>
+                <option value="https://i.imgflip.com/1g8my4.jpg">Two Buttons</option>
               </select>
             </div>
             <div class="form-group">
@@ -46,6 +50,7 @@
                 id="top-text"
                 class="form-control"
                 placeholder="Text at the top"
+                maxlength="200"
               />
             </div>
             <div class="form-group">
@@ -55,9 +60,9 @@
                 id="bottom-text"
                 class="form-control"
                 placeholder="Text at the bottom"
+                maxlength="200"
               />
             </div>
-            <button type="submit" class="btn btn-primary">Generate Meme</button>
             <hr class="form-divider" />
             <div class="custom-text-section">
               <h4>Add Custom Text</h4>
@@ -70,6 +75,9 @@
                 Add Text Box
               </button>
             </div>
+            <button type="submit" class="btn btn-primary generate-btn">
+              Generate Meme
+            </button>
           </form>
         </div>
 
@@ -83,9 +91,13 @@
                 class="form-control"
                 rows="3"
                 placeholder="e.g., A cat programming on a laptop, synthwave style"
+                maxlength="500"
               ></textarea>
             </div>
-            <button type="submit" class="btn btn-primary">
+            <p class="hint">
+              AI generation can take up to a minute while the model warms up.
+            </p>
+            <button type="submit" class="btn btn-primary generate-btn">
               Generate Poster
             </button>
           </form>
@@ -96,6 +108,13 @@
           <button id="fetch-templates-btn" class="btn btn-primary">
             Load Templates
           </button>
+          <input
+            type="search"
+            id="template-search"
+            class="form-control"
+            placeholder="Search templates..."
+            style="display: none"
+          />
           <div id="template-browser-container" class="template-grid"></div>
         </div>
       </main>
@@ -113,7 +132,12 @@
             >Download Image</a
           >
         </div>
-        <div id="error-message" class="error-box" style="display: none"></div>
+        <div
+          id="error-message"
+          class="error-box"
+          role="alert"
+          style="display: none"
+        ></div>
       </section>
     </div>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>

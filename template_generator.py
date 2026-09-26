@@ -1,7 +1,8 @@
 # template_generator.py
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw
 from io import BytesIO
+from fonts import load_font
 
 def create_template(width, height, background_color, text_boxes):
     """
@@ -21,24 +22,13 @@ def create_template(width, height, background_color, text_boxes):
         img = Image.new('RGB', (width, height), color=background_color)
         draw = ImageDraw.Draw(img)
 
-        try:
-            font_path = "arial.ttf"
-            ImageFont.truetype(font_path, 10) # Test font loading
-        except IOError:
-            font_path = None # Pillow will use its default bitmap font
-
         for box in text_boxes:
             text = box.get('text', '')
             x = int(box.get('x', 10))
             y = int(box.get('y', 10))
             font_size = int(box.get('font_size', 30))
             color = box.get('color', '#CCCCCC')
-            
-            if font_path:
-                font = ImageFont.truetype(font_path, font_size)
-            else:
-                font = ImageFont.load_default()
-            
+            font = load_font(font_size, bold=False)
             draw.text((x, y), text, font=font, fill=color)
 
         # Save image to a byte stream
