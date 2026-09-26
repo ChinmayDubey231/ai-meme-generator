@@ -103,6 +103,27 @@
           </form>
         </div>
 
+        <section class="result-section full-width">
+          <div id="loading-spinner" class="spinner" style="display: none"></div>
+          <div id="result-display" style="display: none">
+            <h3>Your Creation</h3>
+            <img id="result-image" src="" alt="Generated Image" />
+            <a
+              id="download-btn"
+              class="btn btn-secondary"
+              href=""
+              download="creation.png"
+              >Download Image</a
+            >
+          </div>
+          <div
+            id="error-message"
+            class="error-box"
+            role="alert"
+            style="display: none"
+          ></div>
+        </section>
+
         <div class="generator-box full-width">
           <h2>Browse Popular Templates</h2>
           <button id="fetch-templates-btn" class="btn btn-primary">
@@ -118,27 +139,6 @@
           <div id="template-browser-container" class="template-grid"></div>
         </div>
       </main>
-
-      <section class="result-section">
-        <div id="loading-spinner" class="spinner" style="display: none"></div>
-        <div id="result-display" style="display: none">
-          <h3>Your Creation</h3>
-          <img id="result-image" src="" alt="Generated Image" />
-          <a
-            id="download-btn"
-            class="btn btn-secondary"
-            href=""
-            download="creation.png"
-            >Download Image</a
-          >
-        </div>
-        <div
-          id="error-message"
-          class="error-box"
-          role="alert"
-          style="display: none"
-        ></div>
-      </section>
     </div>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
   </body>
